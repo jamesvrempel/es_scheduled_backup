@@ -10,7 +10,7 @@ add_to_apps_screen = [
 		"name": "es_scheduled_backup",
 		"logo": "/assets/es_scheduled_backup/images/logo.svg",
 		"title": "ES Scheduled Backup",
-		"route": "/app/es-scheduled-backup-settings",
+		"route": "/app/es-scheduled-backup",
 		"has_permission": "es_scheduled_backup.api.has_app_permission",
 	}
 ]

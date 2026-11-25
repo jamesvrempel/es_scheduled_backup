@@ -65,8 +65,11 @@ bench restart
 
 ## Configure on the source site
 
-Open **ES Scheduled Backup Settings** (search for it, or use the tile on the
-apps screen).
+Open the **ES Scheduled Backup** workspace from the sidebar or the apps screen.
+It has shortcuts to Settings, the Run Log and Failed Runs, and a link to
+Frappe's Download Backups page. The workspace is visible to System Managers.
+
+Then open **Settings**.
 
 | Setting | Meaning |
 | --- | --- |
