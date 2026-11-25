@@ -1,0 +1,97 @@
+{
+ "charts": [],
+ "content": "[{\"id\":\"esb0header\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>ES Scheduled Backup</b></span>\",\"col\":12}},{\"id\":\"esb0intro0\",\"type\":\"paragraph\",\"data\":{\"text\":\"Keeps a working copy of this site on a second server. Set the schedule and destination in Settings, then follow each run in the Run Log.\",\"col\":12}},{\"id\":\"esb0short0\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Settings\",\"col\":3}},{\"id\":\"esb0short1\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Run Log\",\"col\":3}},{\"id\":\"esb0short2\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Failed Runs\",\"col\":3}},{\"id\":\"esb0spacer\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"esb0card00\",\"type\":\"card\",\"data\":{\"card_name\":\"Backup and Restore\",\"col\":4}}]",
+ "creation": "2026-11-25 20:15:00.000000",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "integration",
+ "idx": 0,
+ "is_hidden": 0,
+ "label": "ES Scheduled Backup",
+ "links": [
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Backup and Restore",
+   "link_count": 3,
+   "link_to": null,
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "link_count": 0,
+   "onboard": 0,
+   "type": "Link",
+   "label": "ES Scheduled Backup Settings",
+   "link_to": "ES Scheduled Backup Settings",
+   "link_type": "DocType"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "link_count": 0,
+   "onboard": 0,
+   "type": "Link",
+   "label": "ES Scheduled Backup Log",
+   "link_to": "ES Scheduled Backup Log",
+   "link_type": "DocType"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "link_count": 0,
+   "onboard": 0,
+   "type": "Link",
+   "label": "Download Backups",
+   "link_to": "backups",
+   "link_type": "Page"
+  }
+ ],
+ "modified": "2026-11-25 20:15:00.000000",
+ "modified_by": "Administrator",
+ "module": "ES Scheduled Backup",
+ "name": "ES Scheduled Backup",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [
+  {
+   "role": "System Manager"
+  }
+ ],
+ "sequence_id": 90.0,
+ "shortcuts": [
+  {
+   "label": "Settings",
+   "link_to": "ES Scheduled Backup Settings",
+   "type": "DocType",
+   "doc_view": ""
+  },
+  {
+   "label": "Run Log",
+   "link_to": "ES Scheduled Backup Log",
+   "type": "DocType",
+   "doc_view": "List",
+   "color": "Grey",
+   "stats_filter": "[]"
+  },
+  {
+   "label": "Failed Runs",
+   "link_to": "ES Scheduled Backup Log",
+   "type": "DocType",
+   "doc_view": "List",
+   "color": "Red",
+   "stats_filter": "{\"status\":\"Failed\"}",
+   "format": "{} Failed"
+  }
+ ],
+ "title": "ES Scheduled Backup"
+}
