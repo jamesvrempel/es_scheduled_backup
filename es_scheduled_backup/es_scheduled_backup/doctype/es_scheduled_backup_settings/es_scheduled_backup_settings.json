@@ -1,0 +1,282 @@
+{
+ "actions": [],
+ "creation": "2026-11-25 18:30:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "enabled",
+  "source_site",
+  "cb_status",
+  "last_run",
+  "last_status",
+  "last_duration",
+  "last_backup_file",
+  "last_slot",
+  "sb_schedule",
+  "frequency",
+  "cb_schedule",
+  "hourly_minute",
+  "nightly_time",
+  "sb_destination",
+  "destination_host",
+  "ssh_user",
+  "ssh_port",
+  "ssh_key_path",
+  "cb_destination",
+  "destination_site",
+  "destination_bench_path",
+  "destination_incoming_file",
+  "restore_script",
+  "sb_actions",
+  "sync_public_files",
+  "sync_private_files",
+  "cb_actions",
+  "delete_removed_files",
+  "restore_on_destination",
+  "sb_alerts",
+  "notify_on_failure",
+  "notify_email",
+  "cb_alerts",
+  "keep_logs_days"
+ ],
+ "fields": [
+  {
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "label": "Run on a schedule",
+   "default": "0",
+   "description": "When off, nothing runs by itself. Run Now still works."
+  },
+  {
+   "fieldname": "source_site",
+   "fieldtype": "Data",
+   "label": "Source site",
+   "reqd": 1,
+   "description": "Runs only start when this matches the site you are logged in to. It stops a restored copy from pushing backups of its own."
+  },
+  {
+   "fieldname": "cb_status",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "last_run",
+   "fieldtype": "Datetime",
+   "label": "Last run",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_status",
+   "fieldtype": "Data",
+   "label": "Last result",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_duration",
+   "fieldtype": "Data",
+   "label": "Last run took",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_backup_file",
+   "fieldtype": "Data",
+   "label": "Last backup file",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_slot",
+   "fieldtype": "Datetime",
+   "label": "Last scheduled slot",
+   "read_only": 1,
+   "hidden": 1
+  },
+  {
+   "fieldname": "sb_schedule",
+   "fieldtype": "Section Break",
+   "label": "Schedule"
+  },
+  {
+   "fieldname": "frequency",
+   "fieldtype": "Select",
+   "label": "How often",
+   "options": "Hourly\nNightly",
+   "default": "Nightly",
+   "reqd": 1,
+   "description": "Each run overwrites the copy and logs its users out."
+  },
+  {
+   "fieldname": "cb_schedule",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "hourly_minute",
+   "fieldtype": "Int",
+   "label": "Minute past the hour",
+   "default": "17",
+   "depends_on": "eval:doc.frequency=='Hourly'",
+   "description": "0 to 59."
+  },
+  {
+   "fieldname": "nightly_time",
+   "fieldtype": "Time",
+   "label": "Time of night",
+   "default": "01:30:00",
+   "depends_on": "eval:doc.frequency=='Nightly'",
+   "description": "In this site's time zone."
+  },
+  {
+   "fieldname": "sb_destination",
+   "fieldtype": "Section Break",
+   "label": "Destination server"
+  },
+  {
+   "fieldname": "destination_host",
+   "fieldtype": "Data",
+   "label": "Destination host",
+   "reqd": 1,
+   "description": "IP address or hostname of the server that holds the copy."
+  },
+  {
+   "fieldname": "ssh_user",
+   "fieldtype": "Data",
+   "label": "SSH user",
+   "default": "enterprise",
+   "reqd": 1
+  },
+  {
+   "fieldname": "ssh_port",
+   "fieldtype": "Int",
+   "label": "SSH port",
+   "default": "22"
+  },
+  {
+   "fieldname": "ssh_key_path",
+   "fieldtype": "Data",
+   "label": "SSH key path",
+   "default": "/home/enterprise/.ssh/clone_sync",
+   "reqd": 1,
+   "description": "Private key on this server that the destination accepts."
+  },
+  {
+   "fieldname": "cb_destination",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "destination_site",
+   "fieldtype": "Data",
+   "label": "Destination site",
+   "reqd": 1,
+   "description": "Site name on the destination, for example erpclone.enterprisesystems.com.au."
+  },
+  {
+   "fieldname": "destination_bench_path",
+   "fieldtype": "Data",
+   "label": "Destination bench path",
+   "default": "/home/enterprise/frappe-bench",
+   "reqd": 1
+  },
+  {
+   "fieldname": "destination_incoming_file",
+   "fieldtype": "Data",
+   "label": "Incoming backup file",
+   "default": "/home/enterprise/incoming/latest-database.sql.gz",
+   "reqd": 1,
+   "description": "Where the database backup is placed on the destination. The restore script reads it from here."
+  },
+  {
+   "fieldname": "restore_script",
+   "fieldtype": "Data",
+   "label": "Restore script",
+   "default": "/home/enterprise/restore-latest.sh",
+   "depends_on": "eval:doc.restore_on_destination",
+   "mandatory_depends_on": "eval:doc.restore_on_destination",
+   "description": "Script on the destination that runs bench restore."
+  },
+  {
+   "fieldname": "sb_actions",
+   "fieldtype": "Section Break",
+   "label": "What each run does"
+  },
+  {
+   "fieldname": "sync_public_files",
+   "fieldtype": "Check",
+   "label": "Sync public files",
+   "default": "1"
+  },
+  {
+   "fieldname": "sync_private_files",
+   "fieldtype": "Check",
+   "label": "Sync private files",
+   "default": "1"
+  },
+  {
+   "fieldname": "cb_actions",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "delete_removed_files",
+   "fieldtype": "Check",
+   "label": "Remove files deleted on the source",
+   "default": "1",
+   "description": "Keeps the copy's files an exact match."
+  },
+  {
+   "fieldname": "restore_on_destination",
+   "fieldtype": "Check",
+   "label": "Restore the database on the destination",
+   "default": "1",
+   "description": "When off, the backup and files are copied across but the copy's database is left alone."
+  },
+  {
+   "fieldname": "sb_alerts",
+   "fieldtype": "Section Break",
+   "label": "Alerts and log"
+  },
+  {
+   "fieldname": "notify_on_failure",
+   "fieldtype": "Check",
+   "label": "Email me when a run fails",
+   "default": "0"
+  },
+  {
+   "fieldname": "notify_email",
+   "fieldtype": "Data",
+   "label": "Send alerts to",
+   "options": "Email",
+   "depends_on": "eval:doc.notify_on_failure",
+   "mandatory_depends_on": "eval:doc.notify_on_failure"
+  },
+  {
+   "fieldname": "cb_alerts",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "keep_logs_days",
+   "fieldtype": "Int",
+   "label": "Keep log entries for (days)",
+   "default": "30"
+  }
+ ],
+ "issingle": 1,
+ "links": [],
+ "modified": "2026-11-25 18:30:00.000000",
+ "modified_by": "Administrator",
+ "module": "ES Scheduled Backup",
+ "name": "ES Scheduled Backup Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

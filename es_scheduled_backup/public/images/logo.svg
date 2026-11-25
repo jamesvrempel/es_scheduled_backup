@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="ES Scheduled Backup">
+  <rect width="64" height="64" rx="14" fill="#1f4e79"/>
+  <ellipse cx="24" cy="20" rx="12" ry="5" fill="none" stroke="#ffffff" stroke-width="3"/>
+  <path d="M12 20v20c0 2.8 5.4 5 12 5s12-2.2 12-5V20" fill="none" stroke="#ffffff" stroke-width="3"/>
+  <path d="M12 30c0 2.8 5.4 5 12 5s12-2.2 12-5" fill="none" stroke="#ffffff" stroke-width="3"/>
+  <circle cx="44" cy="42" r="11" fill="#f2a900"/>
+  <path d="M44 36v6.5l4 2.5" fill="none" stroke="#1f4e79" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

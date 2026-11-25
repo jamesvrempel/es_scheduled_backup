@@ -1,0 +1,124 @@
+{
+ "actions": [],
+ "autoname": "ESBL-.YYYY.-.#####",
+ "creation": "2026-11-25 18:30:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "status",
+  "trigger",
+  "destination",
+  "backup_file",
+  "cb_times",
+  "started",
+  "finished",
+  "duration",
+  "sb_error",
+  "error",
+  "sb_output",
+  "output"
+ ],
+ "fields": [
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Running\nSuccess\nFailed",
+   "read_only": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "trigger",
+   "fieldtype": "Select",
+   "label": "Started by",
+   "options": "Scheduled\nManual",
+   "read_only": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1
+  },
+  {
+   "fieldname": "destination",
+   "fieldtype": "Data",
+   "label": "Destination",
+   "read_only": 1
+  },
+  {
+   "fieldname": "backup_file",
+   "fieldtype": "Data",
+   "label": "Backup file",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cb_times",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "started",
+   "fieldtype": "Datetime",
+   "label": "Started",
+   "read_only": 1,
+   "in_list_view": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "finished",
+   "fieldtype": "Datetime",
+   "label": "Finished",
+   "read_only": 1
+  },
+  {
+   "fieldname": "duration",
+   "fieldtype": "Data",
+   "label": "Took",
+   "read_only": 1,
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "sb_error",
+   "fieldtype": "Section Break",
+   "label": "Error",
+   "depends_on": "eval:doc.error"
+  },
+  {
+   "fieldname": "error",
+   "fieldtype": "Code",
+   "label": "Error",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sb_output",
+   "fieldtype": "Section Break",
+   "label": "Steps"
+  },
+  {
+   "fieldname": "output",
+   "fieldtype": "Code",
+   "label": "Output",
+   "read_only": 1
+  }
+ ],
+ "in_create": 1,
+ "links": [],
+ "modified": "2026-11-25 18:30:00.000000",
+ "modified_by": "Administrator",
+ "module": "ES Scheduled Backup",
+ "name": "ES Scheduled Backup Log",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
